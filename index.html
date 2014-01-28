@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>BACKBONE Marionette Test</title>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
+        <script src="/assets/js/vendor/underscore.js"></script>
+        <!-- <script src="/assets/js/vendor/backbone.js"></script>
+        <script src="/assets/js/vendor/backbone.marionette.min.js"></script> -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/backbone.marionette/1.0.4-bundled/backbone.marionette.min.js"></script>
+
+        <!-- <link href="/assets/css/bootstrap.css" rel="stylesheet"> -->
+        <link href="/assets/css/custom.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>I can has Catz?</h1>
+        <div id="content"></div>
+        <script src="/assets/js/vendor/application.js"></script>
+        <script type="text/template" id="angry_cats-template">
+            <thead>
+              <tr class='header'>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+        </script>
+        <script type="text/template" id="angry_cat-template">
+            <td><%= rank ></td>
+            <td><%= name ></td>
+            <td><img class='angry_cat_pic' src='<%= image_path %>' /></td>
+            <td>
+                <div class='rank_up'><img src='/assets/images/up.gif' ></div>
+                <div class='rank_down'><img src='/assets/images/down.gif' ></div>
+            </td>
+        </script>
+  </body>
+</html>
