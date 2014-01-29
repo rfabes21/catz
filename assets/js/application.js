@@ -16,6 +16,14 @@ var AngryCats = Backbone.Collection.extend ({
             cat.rank = rank;
             ++rank;
         });
+
+        MyApp.on('rank:up', function(cat) {
+            console.log('rank up');
+        });
+
+        MyApp.on('rank:up', function(cat) {
+            console.log('rank down');
+        });
     }
 });
 
@@ -30,11 +38,11 @@ var AngryCatView = Backbone.Marionette.ItemView.extend({
     },
 
     rankUp: function() {
-        console.log('Rank UP');
+        MyApp.trigger('rank:up', this.model);
     },
 
     rankDown: function() {
-        console.log('Rank DOWN');
+        MyApp.trigger('rank:down', this.model);
     }
 });
 
@@ -52,18 +60,12 @@ var AngryCatView = Backbone.Marionette.ItemView.extend({
     }
 });
 
-// MyApp.addInitializer = function(options){
-//     var angryCatsView = new AngryCatsView({
-//         collection: options.cats
-//     });
-//     MyApp.mainRegion.show(angryCatsView);
-// };
-
 $(document).ready( function(){
     var cats = new AngryCats([
         { name: "Wet Cat", image_path: "/assets/images/cat2.jpg" },
         { name: "Bitey Cat", image_path: "/assets/images/cat1.jpg" },
-        { name: "Surprised Cat", image_path: "/assets/images/cat3.jpg" }
+        { name: "Surprised Cat", image_path: "/assets/images/cat3.jpg" },
+        { name: "Demon Cat", image_path: "/assets/images/cat4.jpg" }
     ]);
     var angryCatsView = new AngryCatsView({
         collection: cats
